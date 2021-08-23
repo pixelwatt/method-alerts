@@ -3,7 +3,7 @@
  * Plugin Name: Method Alerts
  * Plugin URI: https://github.com/pixelwatt/method-alerts
  * Description: This plugin implements a system for displaying alerts on specific pages or posts, loading alerts through the browser to keep performance impact low. This plugin requires CMB2.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Rob Clark
  * Author URI: https://robclark.io
  */
@@ -328,7 +328,13 @@ function method_alerts_build_json() {
 
 		// Content
 		$alert['attr']['headline'] = ( method_alerts_check_key( $meta['_method_alerts_headline'][0] ) ? method_alerts_format_tags( $meta['_method_alerts_headline'][0] ) : '&nbsp;' );
-		$alert['attr']['content']  = ( method_alerts_check_key( $meta['_method_alerts_content'][0] ) ? method_alerts_filter_content( $meta['_method_alerts_content'][0] ) : '&nbsp;' );
+		if ( method_alerts_check_key( $meta['_method_alerts_content'][0] ) ) {
+			$alert_content = method_alerts_filter_content( $meta['_method_alerts_content'][0] );
+			$alert_content = str_replace( '<a ', '<a class="alert-link" ', $alert_content );
+			$alert['attr']['content'] = $alert_content;
+		} else {
+			$alert['attr']['content'] = '&nbsp;';
+		}
 		$alert['attr']['theme']    = ( method_alerts_check_key( $meta['_method_alerts_theme'][0] ) ? $meta['_method_alerts_theme'][0] : 'primary' );
 
 		// Add alert data to the array of alerts to be written to json
