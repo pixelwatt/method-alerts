@@ -1,3 +1,5 @@
+![Method Alerts Banner](https://pixelwatt.com/assets/ma_banner.jpg)
+
 # Method Alerts
 
 This plugin implements a system for displaying alerts on specific pages or posts, loading alerts through the browser to keep performance impact low. **This plugin requires CMB2 and a theme built with Bootstrap 5 (or Bootstrap's CSS for the '.alert' class and applicable modifier classes).**
