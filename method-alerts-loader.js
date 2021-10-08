@@ -39,6 +39,7 @@ function pushToPage() {
 	if ( internalAlerts.length > 0 ) {
 		jQuery.each( internalAlerts, function( i, item ) {
 			jQuery( ".method-alerts-container" ).append( item );
+			jQuery( "body" ).addClass( "has-method-alert" );
 		})
 	}
 }
