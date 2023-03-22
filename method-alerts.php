@@ -3,7 +3,7 @@
  * Plugin Name: Method Alerts
  * Plugin URI: https://github.com/pixelwatt/method-alerts
  * Description: This plugin implements a system for displaying alerts on specific pages or posts, loading alerts through the browser to keep performance impact low. This plugin requires CMB2.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Rob Clark
  * Author URI: https://robclark.io
  */
@@ -119,6 +119,7 @@ function method_alerts_metabox() {
 				'info'      => 'Info',
 				'light'     => 'Light',
 				'dark'      => 'Dark',
+				'unstyled'  => 'Unstyled',
 			),
 		)
 	);

@@ -32,7 +32,11 @@ jQuery.ajax({
 });
 
 function pushInternal( headline, content, theme ) {
-	internalAlerts.push( '<div class="alert alert-' + theme + '" role="alert"><h4 class="alert-heading">' + headline + '</h4>' + content + '</div>' );
+	if ( theme == 'unstyled' ) {
+		internalAlerts.push( '<div class="method-alert-unstyled" role="alert"><h4 class="method-alert-unstyled-heading">' + headline + '</h4>' + content + '</div>' );
+	} else {
+		internalAlerts.push( '<div class="alert alert-' + theme + '" role="alert"><h4 class="alert-heading">' + headline + '</h4>' + content + '</div>' );
+	}
 }
 
 function pushToPage() {
