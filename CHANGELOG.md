@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+# v1.0.3
+
+Implemented a fix for multisite installations, in which alerts json is stored in site-specific subdirectories.
+
+---
+
 # v1.0.2
 
 A new color scheme, "Unstyled", can now be applied to alerts. If this color scheme is chosen for an alert, its output will not include any Bootstrap markup, and can easily be styled without the need for CSS overrides.

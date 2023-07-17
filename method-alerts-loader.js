@@ -5,7 +5,7 @@ var currentTime = ts;
 ts = (ts-(ts%1000))/1000;
 
 jQuery.ajax({
-    url: ( data_object.site_url + '/wp-content/uploads/method-alerts/data.json?ts=' + ts ),
+    url: ( data_object.upload_dir + '/method-alerts/data.json?ts=' + ts ),
     dataType: 'json',
     cache: true,
 })

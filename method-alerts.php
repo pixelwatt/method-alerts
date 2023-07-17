@@ -3,7 +3,7 @@
  * Plugin Name: Method Alerts
  * Plugin URI: https://github.com/pixelwatt/method-alerts
  * Description: This plugin implements a system for displaying alerts on specific pages or posts, loading alerts through the browser to keep performance impact low. This plugin requires CMB2.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Rob Clark
  * Author URI: https://robclark.io
  */
@@ -12,11 +12,22 @@ function method_alerts_scripts() {
 	if ( is_singular() ) {
 		wp_enqueue_script( 'method-alerts-loader', plugin_dir_url( __FILE__ ) . 'method-alerts-loader.js', array( 'jquery' ), '', true );
 
+		if( is_multisite() ) {
+			switch_to_blog( get_current_blog_id() );
+		}
+
+		$updir = wp_upload_dir();
+
 		$data_array = array(
 			'postid'   => get_the_id(),
 			'site_url' => get_site_url(),
+			'upload_dir' => $updir['baseurl'],
 		);
 		wp_localize_script( 'method-alerts-loader', 'data_object', $data_array );
+
+		if( is_multisite() ) {
+			restore_current_blog();
+		}
 	}
 }
 
